@@ -19,7 +19,6 @@ public class Task {
     private String description;
     private String address;
     private String taskstatus;
-    private boolean show = true;
 
     public Task() {
     }
@@ -80,11 +79,4 @@ public class Task {
         this.taskstatus = taskstatus;
     }
 
-    public boolean isShow() {
-        return show;
-    }
-
-    public void setShow(boolean show) {
-        this.show = show;
-    }
 }

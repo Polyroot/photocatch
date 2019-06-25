@@ -18,11 +18,11 @@ public class TaskService {
         String status3 = "fulfilled";
 
         if (task.getTaskstatus() == null){
-            task.setTaskstatus("published");
-        } else if (task.getTaskstatus().equals("published")){
-            task.setTaskstatus("performed");
-        } else if (task.getTaskstatus().equals("performed")){
-            task.setTaskstatus("fulfilled");
+            task.setTaskstatus(status1);
+        } else if (task.getTaskstatus().equals(status1)){
+            task.setTaskstatus(status2);
+        } else if (task.getTaskstatus().equals(status2)){
+            task.setTaskstatus(status3);
         }
 
         tasksRepo.save(task);
