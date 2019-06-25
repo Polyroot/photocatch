@@ -19,6 +19,7 @@ public class Task {
     private String description;
     private String address;
     private String taskstatus;
+    private boolean show = true;
 
     public Task() {
     }
@@ -77,5 +78,13 @@ public class Task {
 
     public void setTaskstatus(String taskstatus) {
         this.taskstatus = taskstatus;
+    }
+
+    public boolean isShow() {
+        return show;
+    }
+
+    public void setShow(boolean show) {
+        this.show = show;
     }
 }

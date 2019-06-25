@@ -32,17 +32,11 @@ public class TaskController {
     @PostMapping()
     public String changeStatusTask(@RequestParam("taskId") Task task, Model model){
 
-        taskService.changeStatusTask(task, "performed");
+        taskService.changeStatusTask(task);
 
         model.addAttribute("task", task);
 
         return "task";
     }
-
-
-
-
-
-
 
 }

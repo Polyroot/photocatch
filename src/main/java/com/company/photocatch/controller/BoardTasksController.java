@@ -34,10 +34,10 @@ public class BoardTasksController {
     @PostMapping
     public String changeStatusTask(@RequestParam("taskId") Task task, Model model){
 
-        taskService.changeStatusTask(task, "performed");
+        taskService.changeStatusTask(task);
+
         model.addAttribute("tasks", tasksRepo.findAll());
 
         return "boardtasks";
     }
-
 }

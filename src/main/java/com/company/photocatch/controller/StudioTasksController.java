@@ -38,9 +38,8 @@ public class StudioTasksController {
 
         Task task = new Task(taskname, product, description, address);
 
-        taskService.changeStatusTask(task, "published");
+        taskService.changeStatusTask(task);
         model.addAttribute("tasks", tasksRepo.findAll());
-
 
         return "studioTasks";
     }

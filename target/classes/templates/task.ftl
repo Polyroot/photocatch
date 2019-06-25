@@ -13,8 +13,7 @@
     </div>
     <input type="hidden" value="${task.id}" name="taskId">
     <div>
-        <button type="submit">Взять в работу</button>
+        <button type="submit">${task.taskstatus}</button>
     </div>
-
 </form>
 </@common.page>
