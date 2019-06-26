@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/task")
@@ -39,4 +42,14 @@ public class TaskController {
         return "task";
     }
 
+    @PostMapping("resultphoto")
+    public String addPhotos(@RequestParam("taskId") Task task,
+                            @RequestParam("photo") MultipartFile photoFile,
+                            Model model) throws IOException {
+
+        taskService.addPhotos(task, photoFile);
+
+        model.addAttribute("task", task);
+        return "task";
+    }
 }

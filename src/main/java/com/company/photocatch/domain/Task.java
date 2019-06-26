@@ -20,6 +20,8 @@ public class Task {
     private String address;
     private String taskstatus;
 
+    private String photoname;
+
     public Task() {
     }
 
@@ -79,4 +81,11 @@ public class Task {
         this.taskstatus = taskstatus;
     }
 
+    public String getPhotoname() {
+        return photoname;
+    }
+
+    public void setPhotoname(String photoname) {
+        this.photoname = photoname;
+    }
 }
