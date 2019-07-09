@@ -27,7 +27,7 @@
     <#list pictures as picture>
         <div>
             <#if picture??>
-            <img src="/img/${picture}">
+            <img src="/img/${picture?ifExists}">
             </#if>
         </div>
         <#else>
