@@ -27,7 +27,7 @@ public class TaskController {
     public String getTask(@PathVariable Task task, Model model){
 
         model.addAttribute("task", task);
-
+        model.addAttribute("pictures", task.getListPhotonames());
         return "task";
 
     }
@@ -48,8 +48,8 @@ public class TaskController {
                             Model model) throws IOException {
 
         taskService.addPhotos(task, photoFile);
-
         model.addAttribute("task", task);
+        model.addAttribute("pictures", task.getListPhotonames());
         return "task";
     }
 }

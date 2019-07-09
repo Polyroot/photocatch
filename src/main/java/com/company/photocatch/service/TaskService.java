@@ -52,7 +52,7 @@ public class TaskService {
             String photoFileName = photoUUIDFile + "." + photoFile.getOriginalFilename();
 
             photoFile.transferTo(new File(photoUploadDir + "/" + photoFileName));
-            task.setPhotoname(photoFileName);
+            task.getListPhotonames().add(photoFileName);
         }
 
         tasksRepo.save(task);

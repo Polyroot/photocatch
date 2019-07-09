@@ -1,10 +1,9 @@
 package com.company.photocatch.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Task {
@@ -20,7 +19,10 @@ public class Task {
     private String address;
     private String taskstatus;
 
-    private String photoname;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "task_picture", joinColumns = @JoinColumn(name = "task_id"))
+    private List<String> listPhotonames = new ArrayList<>();
+
 
     public Task() {
     }
@@ -30,7 +32,6 @@ public class Task {
         this.product = product;
         this.description = description;
         this.address = address;
-
     }
 
     public Long getId() {
@@ -81,11 +82,11 @@ public class Task {
         this.taskstatus = taskstatus;
     }
 
-    public String getPhotoname() {
-        return photoname;
+    public List<String> getListPhotonames() {
+        return listPhotonames;
     }
 
-    public void setPhotoname(String photoname) {
-        this.photoname = photoname;
+    public void setListPhotonames(List<String> listPhotonames) {
+        this.listPhotonames = listPhotonames;
     }
 }
