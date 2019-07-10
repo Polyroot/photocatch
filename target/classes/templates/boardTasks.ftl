@@ -2,6 +2,14 @@
 <@common.page>
 <div>Здесь публикуются задания для фотографирования цен на определённые товары в различных магазинах и супермаркетах</div>
 
+<#macro showbutton tstatus>
+<#if tstatus=="published">
+<div>
+    <button type="submit">Взять в работу</button>
+</div>
+</#if>
+</#macro>
+
 <form action="/boardtasks" method="post">
 <div>
     <#list tasks as task>
@@ -14,9 +22,7 @@
     <div>
         <a href="/task/${task.id}">Подробнее о задаче</a>
     </div>
-    <div>
-        <button type="submit">Взять в работу</button>
-    </div>
+    <@showbutton task.taskstatus/>
     <#else>
     No message
 </#list>

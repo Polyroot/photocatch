@@ -3,7 +3,6 @@ package com.company.photocatch.domain;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -22,8 +21,7 @@ public class Task {
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "task_picture", joinColumns = @JoinColumn(name = "task_id"))
-    private List<String> listPhotonames = new ArrayList<>();
-
+    private List<String> photonames = new ArrayList<>();
 
     public Task() {
     }
@@ -83,11 +81,11 @@ public class Task {
         this.taskstatus = taskstatus;
     }
 
-    public List<String> getListPhotonames() {
-        return listPhotonames;
+    public List<String> getPhotonames() {
+        return photonames;
     }
 
-    public void setListPhotonames(List<String> listPhotonames) {
-        this.listPhotonames = listPhotonames;
+    public void setPhotonames(List<String> photonames) {
+        this.photonames = photonames;
     }
 }

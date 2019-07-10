@@ -22,12 +22,10 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-
     @GetMapping("{task}")
     public String getTask(@PathVariable Task task, Model model){
 
         model.addAttribute("task", task);
-        model.addAttribute("pictures", task.getListPhotonames());
         return "task";
 
     }
@@ -36,9 +34,7 @@ public class TaskController {
     public String changeStatusTask(@RequestParam("taskId") Task task, Model model){
 
         taskService.changeStatusTask(task);
-
         model.addAttribute("task", task);
-
         return "task";
     }
 
@@ -49,7 +45,6 @@ public class TaskController {
 
         taskService.addPhotos(task, photoFile);
         model.addAttribute("task", task);
-        model.addAttribute("pictures", task.getListPhotonames());
         return "task";
     }
 }

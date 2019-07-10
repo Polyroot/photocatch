@@ -6,4 +6,5 @@
 </div>
 <div><a href="/boardtasks">Опубликованные задания</a> </div>
 <div><a href="/studiotasks">Создание заданий</a> </div>
+<div><a href="/login">Login</a> </div>
 </@common.page>

@@ -16,6 +16,7 @@
             <input type="text" name="address" placeholder="адрес супермаркета">
         </div>
         <div>
+            <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <button type="submit">Добавить заказ</button>
         </div>
 </form>

@@ -13,6 +13,7 @@
     </div>
     <input type="hidden" value="${task.id}" name="taskId">
     <div>
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <button type="submit">${task.taskstatus}</button>
     </div>
 </form>
@@ -21,13 +22,14 @@
     <input type="hidden" value="${task.id}" name="taskId">
     <div>
         <input type="file" name="photo">
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <button type="submit">Добавить</button>
     </div>
 
-    <#list pictures as picture>
+    <#list task.photonames as photoname>
         <div>
-            <#if picture??>
-            <img src="/img/${picture?ifExists}">
+            <#if photoname??>
+            <img src="/img/${photoname}">
             </#if>
         </div>
         <#else>

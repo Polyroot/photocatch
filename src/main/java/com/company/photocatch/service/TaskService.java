@@ -1,9 +1,7 @@
 package com.company.photocatch.service;
 
 import com.company.photocatch.domain.Task;
-import com.company.photocatch.domain.Test;
 import com.company.photocatch.repos.TasksRepo;
-import com.company.photocatch.repos.TestRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -52,7 +50,7 @@ public class TaskService {
             String photoFileName = photoUUIDFile + "." + photoFile.getOriginalFilename();
 
             photoFile.transferTo(new File(photoUploadDir + "/" + photoFileName));
-            task.getListPhotonames().add(photoFileName);
+            task.getPhotonames().add(photoFileName);
         }
 
         tasksRepo.save(task);
