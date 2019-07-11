@@ -20,7 +20,7 @@ public class Task {
     private String taskstatus;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "task_picture", joinColumns = @JoinColumn(name = "task_id"))
+    @CollectionTable(name = "task_photo", joinColumns = @JoinColumn(name = "task_id"))
     private List<String> photonames = new ArrayList<>();
 
     public Task() {
