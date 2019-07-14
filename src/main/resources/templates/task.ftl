@@ -10,6 +10,7 @@
         <div><descr>${task.description}</descr></div>
         <div><addr>${task.address}</addr></div>
         <div><status>${task.taskstatus}</status></div>
+        <div><usr>${task.userName}</usr></div>
     </div>
     <input type="hidden" value="${task.id}" name="taskId">
     <div>
@@ -36,6 +37,9 @@
         No picture
     </#list>
 </form>
+
+
+
 
 
 </@common.page>

@@ -1,5 +1,6 @@
 <#include "parts/security.ftl">
 <#import "parts/common.ftl" as common>
+<#import "parts/login.ftl" as login>
 
 <@common.page>
 <div>
@@ -10,4 +11,6 @@
 <div><a href="/studiotasks">Создание заданий</a> </div>
 </#if>
 <div><a href="/login">Login</a> </div>
+
+<@login.logout/>
 </@common.page>

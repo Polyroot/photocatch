@@ -1,10 +1,12 @@
 package com.company.photocatch.controller;
 
 import com.company.photocatch.domain.Task;
+import com.company.photocatch.domain.User;
 import com.company.photocatch.repos.TasksRepo;
 import com.company.photocatch.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,9 +38,10 @@ public class StudioTasksController {
                            @RequestParam String taskname,
                            @RequestParam String product,
                            @RequestParam String description,
-                           @RequestParam String address){
+                           @RequestParam String address,
+                           @AuthenticationPrincipal User user){
 
-        Task task = new Task(taskname, product, description, address);
+        Task task = new Task(taskname, product, description, address, user);
 
         taskService.changeStatusTask(task);
         model.addAttribute("tasks", tasksRepo.findAll());

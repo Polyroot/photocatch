@@ -23,14 +23,23 @@ public class Task {
     @CollectionTable(name = "task_photo", joinColumns = @JoinColumn(name = "task_id"))
     private List<String> photonames = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Task() {
     }
 
-    public Task(String taskname, String product, String description, String address) {
+    public Task(String taskname, String product, String description, String address, User user) {
         this.taskname = taskname;
         this.product = product;
         this.description = description;
         this.address = address;
+        this.user = user;
+    }
+
+    public String getUserName(){
+        return user!=null ? user.getUsername() : "none";
     }
 
     public Long getId() {
@@ -87,5 +96,13 @@ public class Task {
 
     public void setPhotonames(List<String> photonames) {
         this.photonames = photonames;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

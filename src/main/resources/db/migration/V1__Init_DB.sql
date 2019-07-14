@@ -1,7 +1,11 @@
+--DROP SEQUENCE hibernate_sequence;
+--DROP TABLE task, task_photo, task_pictureee, test, user_role, usr;
+
 create sequence hibernate_sequence start 1 increment 1;
 
 create table task (
     id int8 not null,
+    user_id int8,
     address varchar(255),
     description varchar(255),
     product varchar(255),
@@ -36,6 +40,10 @@ create table usr (
     username varchar(255),
     primary key (id)
 );
+alter table if exists task
+    add constraint task_usr_fk
+    foreign key (user_id) references usr;
+
 alter table if exists task_photo
     add constraint task_photo_task_fk
     foreign key (task_id) references task;
