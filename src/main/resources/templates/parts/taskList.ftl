@@ -7,6 +7,8 @@
     <div><addr>${task.address}</addr></div>
     <div><status>${task.taskstatus}</status></div>
     <div><a href="/user-tasks/${task.user.id}">${task.userName}</a></div>
+    <div><a button type="submit" href="/user-tasks/${task.user.id}?task=${task.id}">Edit</a></div>
+
     <#else>
     No message
     </#list>
