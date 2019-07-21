@@ -1,5 +1,6 @@
 package com.company.photocatch.controller;
 
+import com.company.photocatch.DTO.TaskDTO;
 import com.company.photocatch.domain.Task;
 import com.company.photocatch.domain.User;
 import com.company.photocatch.repos.TasksRepo;
@@ -9,10 +10,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/studiotasks")
@@ -25,10 +24,14 @@ public class StudioTasksController {
     @Autowired
     private TaskService taskService;
 
-    @GetMapping
+    private Task task;
+    //спросить так можно или это говнокодно и нужно через репозитароий доставать
+    // (делать селект последней задачи для юзера текущей сессии)
+
+    @GetMapping()
     public String getStudioTasks(Model model){
 
-        model.addAttribute("tasks", tasksRepo.findAll());
+        model.addAttribute("task", task);
 
         return "studioTasks";
     }
@@ -41,12 +44,32 @@ public class StudioTasksController {
                            @RequestParam String address,
                            @AuthenticationPrincipal User user){
 
-        Task task = new Task(taskname, product, description, address, user);
+        task = new Task(taskname, product, description, address, user);
 
         taskService.changeStatusTask(task);
-        model.addAttribute("tasks", tasksRepo.findAll());
+        model.addAttribute("task", task);
 
-        return "studioTasks";
+        return "studiotasks";
     }
+
+//    @GetMapping()
+//    public String getStudioTasks(Model model, TaskDTO taskDTO){
+//
+//        model.addAttribute("task", taskDTO);
+//
+//        return "studioTasks";
+//    }
+//
+//    @PostMapping
+//    public String addTasks(Model model, @ModelAttribute("task") TaskDTO taskDTO,
+//                           @AuthenticationPrincipal User user){
+//        taskDTO.setUser(user);
+//        task = Task.createTask(taskDTO);
+//        taskService.changeStatusTask(taskDTO);
+//        System.out.println(taskDTO);
+//        model.addAttribute("task", task);
+//
+//        return "studiotasks";
+//    }
 
 }

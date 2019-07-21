@@ -1,6 +1,7 @@
 package com.company.photocatch.controller;
 
 
+import com.company.photocatch.DTO.TaskDTO;
 import com.company.photocatch.domain.Task;
 import com.company.photocatch.repos.TasksRepo;
 import com.company.photocatch.service.TaskService;
@@ -35,8 +36,16 @@ public class TaskController {
 
         taskService.changeStatusTask(task);
         model.addAttribute("task", task);
-        return "task";
+        return "redirect:/task/" + task.getId();
     }
+
+//    @PostMapping()
+//    public String changeStatusTask(@ModelAttribute("task") TaskDTO taskDTO, Model model){
+//
+//        System.out.println("TaskDTO = "+ taskDTO);
+//        taskService.changeStatusTask(taskDTO);
+//        return "redirect:/task/" + taskDTO.getId();
+//    }
 
     @PostMapping("resultphoto")
     public String addPhotos(@RequestParam("taskId") Task task,

@@ -2,7 +2,7 @@
 <#import "parts/login.ftl" as login>
 
 <@common.page>
-<div>Add new username</div>
+<div class="mb-2">Add new username</div>
 ${message?ifExists}
-<@login.login "/registration" true/>
+<@login.login "/registration" true />
 </@common.page>

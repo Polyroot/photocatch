@@ -1,4 +1,4 @@
-<div>Task editor</div>
+<div>Редактор задач</div>
 
 <form method="post">
     <div>
@@ -12,7 +12,6 @@
         <input type="text" name="address" placeholder="адрес супермаркета">
     </div>
     <div>
-
         <input type="hidden" name="id" value="<#if task??>${task.id}</#if>" />
         <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <button type="submit">Сохранить задачу</button>

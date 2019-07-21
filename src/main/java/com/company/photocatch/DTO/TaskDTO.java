@@ -1,56 +1,31 @@
-package com.company.photocatch.domain;
+package com.company.photocatch.DTO;
 
+import com.company.photocatch.domain.User;
 
-import com.company.photocatch.DTO.TaskDTO;
-
-import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-public class Task {
+public class TaskDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_generator")
-    @SequenceGenerator(name="seq_generator", sequenceName = "seqTask", initialValue = 1)
     private Long id;
-
     private String taskname;
 
     private String product;
     private String description;
     private String address;
     private String taskstatus;
-
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "task_photo", joinColumns = @JoinColumn(name = "task_id"))
-    private List<String> photonames = new ArrayList<>();
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
     private User user;
 
-    public Task() {
-    }
+    private List<String> photonames;
 
-    public Task(String taskname, String product, String description, String address, User user) {
-        this(taskname, product, description, address);
-        this.user = user;
-    }
-    public Task(String taskname, String product, String description, String address) {
+    public TaskDTO(Long id, String taskname, String product, String description, String address, String taskstatus, User user, List<String> photonames) {
+        this.id = id;
         this.taskname = taskname;
         this.product = product;
         this.description = description;
         this.address = address;
-
-    }
-
-    public static Task createTask(TaskDTO taskDTO){
-        return new Task(taskDTO.getTaskname(), taskDTO.getProduct(), taskDTO.getDescription(), taskDTO.getAddress(), taskDTO.getUser());
-    }
-
-    public String getUserName(){
-        return user!=null ? user.getUsername() : "none";
+        this.taskstatus = taskstatus;
+        this.user = user;
+        this.photonames = photonames;
     }
 
     public Long getId() {
@@ -101,6 +76,14 @@ public class Task {
         this.taskstatus = taskstatus;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public List<String> getPhotonames() {
         return photonames;
     }
@@ -109,11 +92,17 @@ public class Task {
         this.photonames = photonames;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    @Override
+    public String toString() {
+        return "TaskDTO{" +
+                "id=" + id +
+                ", taskname='" + taskname + '\'' +
+                ", product='" + product + '\'' +
+                ", description='" + description + '\'' +
+                ", address='" + address + '\'' +
+                ", taskstatus='" + taskstatus + '\'' +
+                ", user=" + user +
+                ", photonames=" + photonames +
+                '}';
     }
 }

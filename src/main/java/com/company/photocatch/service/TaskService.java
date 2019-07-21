@@ -1,6 +1,8 @@
 package com.company.photocatch.service;
 
+import com.company.photocatch.DTO.TaskDTO;
 import com.company.photocatch.domain.Task;
+import com.company.photocatch.domain.User;
 import com.company.photocatch.repos.TasksRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,6 +38,25 @@ public class TaskService {
 
         tasksRepo.save(task);
     }
+
+//    public void changeStatusTask(TaskDTO taskDTO){
+//
+//        final String status1 = "published";
+//        final String status2 = "performed";
+//        final String status3 = "fulfilled";
+//
+//
+//        tasksRepo.findById(taskDTO.getId()).ifPresent(task -> {
+//            if (task.getTaskstatus() == null){
+//                task.setTaskstatus(status1);
+//            } else if (task.getTaskstatus().equals(status1)){
+//                task.setTaskstatus(status2);
+//            } else if (task.getTaskstatus().equals(status2)){
+//                task.setTaskstatus(status3);
+//            }
+//            tasksRepo.save(task);
+//        });
+//    }
 
     public void addPhotos(Task task, MultipartFile photoFile) throws IOException {
 

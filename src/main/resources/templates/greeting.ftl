@@ -1,16 +1,10 @@
 <#include "parts/security.ftl">
 <#import "parts/common.ftl" as common>
-<#import "parts/login.ftl" as login>
 
 <@common.page>
-<div>
-    Это шикарный сервис для анализа рынка путём сканирования актуальных цен в магазинах и супермаркетах
-</div>
-<div><a href="/boardtasks">Опубликованные задания</a> </div>
-<#if isAdmin>
-<div><a href="/studiotasks">Создание заданий</a> </div>
-</#if>
+<h5>Hello, guest</h5>
+
+<div>This is a perfect service for analyzing the product market by photographing the actual prices of product in supermarkets</div>
 <div><a href="/login">Login</a> </div>
 
-<@login.logout/>
 </@common.page>

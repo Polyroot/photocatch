@@ -2,7 +2,8 @@
 <@common.page>
 <div>Здесь отображается подробная информация о задаче, а также можно комментировать задачи курьерам-фотографам</div>
 
-<form action="/task" method="post">
+<form action="/task" modelAttribute="taskDTO" method="post">
+    <#if task??>
     <div>
         <div><id>${task.id}</id>
         <tname>${task.taskname}</tname></div>
@@ -17,6 +18,7 @@
         <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <button type="submit">${task.taskstatus}</button>
     </div>
+    </#if>
 </form>
 
 <form action="resultphoto" method="post" enctype="multipart/form-data">
