@@ -18,6 +18,8 @@ public class User implements UserDetails {
     private Long id;
     private String username ;
     private String password;
+    private String firstname;
+    private String lastname;
     private boolean active;
 
     private String email;
@@ -138,5 +140,21 @@ public class User implements UserDetails {
 
     public void setTasks(Set<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }

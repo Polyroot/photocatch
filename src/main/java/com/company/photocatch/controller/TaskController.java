@@ -1,10 +1,11 @@
 package com.company.photocatch.controller;
 
 
-import com.company.photocatch.DTO.TaskDTO;
 import com.company.photocatch.domain.Task;
 import com.company.photocatch.repos.TasksRepo;
 import com.company.photocatch.service.TaskService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import java.io.IOException;
 @RequestMapping("/task")
 public class TaskController {
 
+    private static final Logger log = LoggerFactory.getLogger(TaskController.class);
+
     @Autowired
     private TasksRepo tasksRepo;
 
@@ -25,7 +28,7 @@ public class TaskController {
 
     @GetMapping("{task}")
     public String getTask(@PathVariable Task task, Model model){
-
+        log.info("task " + task);
         model.addAttribute("task", task);
         return "task";
 
@@ -33,7 +36,7 @@ public class TaskController {
 
     @PostMapping()
     public String changeStatusTask(@RequestParam("taskId") Task task, Model model){
-
+        log.info("changeStatusTask " + task);
         taskService.changeStatusTask(task);
         model.addAttribute("task", task);
         return "redirect:/task/" + task.getId();

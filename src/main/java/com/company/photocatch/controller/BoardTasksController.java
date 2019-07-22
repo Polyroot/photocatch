@@ -1,7 +1,6 @@
 package com.company.photocatch.controller;
 
 
-import com.company.photocatch.DTO.TaskDTO;
 import com.company.photocatch.domain.Task;
 import com.company.photocatch.repos.TasksRepo;
 import com.company.photocatch.service.TaskService;
@@ -36,7 +35,7 @@ public class BoardTasksController {
 
         model.addAttribute("tasks", tasksRepo.findAll());
 
-        return "boardtasks";
+        return "boardTasks";
     }
 
 //    @GetMapping

@@ -2,7 +2,7 @@
 <@common.page>
 <div>Здесь отображается подробная информация о задаче, а также можно комментировать задачи курьерам-фотографам</div>
 
-<form action="/task" modelAttribute="taskDTO" method="post">
+<form action="/task" method="post">
     <#if task??>
     <div>
         <div><id>${task.id}</id>
