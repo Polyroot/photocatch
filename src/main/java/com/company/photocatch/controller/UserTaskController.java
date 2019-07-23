@@ -3,6 +3,7 @@ package com.company.photocatch.controller;
 
 import com.company.photocatch.domain.Task;
 import com.company.photocatch.domain.User;
+import com.company.photocatch.repos.TasksRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;

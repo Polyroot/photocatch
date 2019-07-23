@@ -13,8 +13,10 @@ import java.util.Set;
 public class Test {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_generator")
-    @SequenceGenerator(name="seq_generator", sequenceName = "seqTest", initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_generator")
+//    @SequenceGenerator(name="seq_generator", sequenceName = "seqTest", initialValue = 1)
     private Long id;
 
     private String firstname;

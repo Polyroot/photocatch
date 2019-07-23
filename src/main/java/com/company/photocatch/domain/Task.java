@@ -11,8 +11,10 @@ import java.util.List;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_generator")
-    @SequenceGenerator(name="seq_generator", sequenceName = "seqTask", initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_generator")
+//    @SequenceGenerator(name="seq_generator", sequenceName = "seqTask", initialValue = 1)
     private Long id;
 
     private String taskname;
